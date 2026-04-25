@@ -1,0 +1,44 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "_TKgJLBhXJrjtqWEN7FuA"
+uri = "file://src/assets/images/hero.png"
+type = "image"
+title = "Hero factory background"
+
+[[generated]]
+id = "LBhJDmcZnVKhRMJPisXbk"
+uri = "file://src/assets/images/base-bag.png"
+type = "image"
+title = "Blank kraft paper sack"
+
+[[generated]]
+id = "DWeytkq1rS1u4O4TQ0LMM"
+uri = "file://src/assets/images/product-1.png"
+type = "image"
+title = "Pasted open mouth bag"
+
+[[generated]]
+id = "2ZlbVNZ-SCblZL08DuKqz"
+uri = "file://src/assets/images/product-2.png"
+type = "image"
+title = "Multiwall paper sack"
+
+[[generated]]
+id = "Sy_9h5t7fH5DCLng7bRsX"
+uri = "file://src/assets/images/product-3.png"
+type = "image"
+title = "Valve type paper sack"
+
+[[generated]]
+id = "N0V_aKQxSTVFJtPHn3pYq"
+uri = "file://src/assets/images/product-4.png"
+type = "image"
+title = "HDPE laminated paper bag"
+
+[[generated]]
+id = "8OzQ7mhLd34laL1yNrqX2"
+uri = "file://src/assets/images/product-5.png"
+type = "image"
+title = "L-stitched paper bag"

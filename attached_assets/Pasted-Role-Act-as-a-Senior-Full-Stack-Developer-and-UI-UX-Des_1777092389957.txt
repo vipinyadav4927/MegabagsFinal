@@ -1,0 +1,53 @@
+Role: Act as a Senior Full-Stack Developer and UI/UX Designer.
+Task: Build a highly professional, advanced, and fully responsive 3-page website (Home, Products, Contact Us) for "Mega Bags" - a Premier Industrial Paper Bag Manufacturer.
+
+Tech Stack Requirements:
+- React.js (or Next.js) with Tailwind CSS for styling.
+- Framer Motion for smooth page transitions and animations.
+- Lucide-react for modern icons.
+- A robust Image Sequence viewer library (like `react-360-view` or custom HTML5 Canvas) for the 360-degree product viewer.
+
+Layout & Navigation:
+- Desktop: Clean, professional top navbar with Logo, Home, Products, About Us (section), Contact.
+- Mobile: Bottom Tab Bar (iPhone app style) for quick navigation.
+- Asset Instruction: Use the local file `megabags-logo-cropped.webp` for the main website logo in the Navbar and Footer.
+
+Page 1: Home Page (Core Features)
+1. Hero Section: Professional introduction. Tagline: "Mega Bags - Carries your trust."
+2. Amazon-Style 360° Product Viewer: Create an interactive product viewer. Fetch an array of 36 placeholder product images (e.g., from an online dummy 360 image API or use a repeating array with slight CSS rotations if API is unavailable) to simulate a 36-frame smooth rotation. Users must be able to drag/swipe left and right to rotate the bag smoothly with damping/inertia.
+3. "Customize Your Product" Feature: Placed next to the 360 viewer. A form where users input "Company Name" or "Logo". This input must dynamically overlay in real-time onto the visible side of the product in the 360 viewer.
+4. Manufacturing Process Video: Looping placeholder video of industrial machines.
+5. Trust & Certifications: Logos for ISO 9001:2015, BIS, FSSAI, and GST.
+6. Why Us Section (Use exact data):
+   - Flawless finish of products
+   - Competitive prices & Timely delivery
+   - High production efficient with highly skilled workforce
+   - Free sampling policy & Comprehensive testing facilities
+   - Bulk production capacity (5,00,000 bags per month on single shift)
+7. About Us Section: 
+   - "Our organization is a brand name in supplying an excellent quality of different types of Paper Bags. Our manufacturing unit is installed with all the requisite machines and facilities like laminating, centre sealing, printing, and cutting based on pneumatic processes."
+
+Page 2: Products Page
+- Create a professional grid layout displaying the following exact products from the company catalog:
+  1. Pasted Open Mouth Paper Sacks (Upto 4 Ply, Glue Adhesive, Flexographic Printing)
+  2. Multiwall Paper Sack (Upto 4 Ply, Capacity Upto 25 Kg, LD/HM Liner)
+  3. Multiwall Paper Pasted Valve-Type (Water Based Starch, 5-7 Inch Valve)
+  4. HDPE Laminated Paper Bags (Hot Melt Adhesive, Capacity Upto 25 Kg)
+  5. L-Stitched Paper Bag (Folded HDPE Laminated Paper)
+- Add tags/filters for Industries: Chemicals, Minerals, Cement, Food spices & Grains, Animal feeds.
+
+Page 3: Contact Us
+- Clean contact form and Google Maps placeholder for Ankleshwar, Gujarat.
+- Use this exact Contact Data:
+  - Address: Plot No. 248, Ankleshwar GIDC, Ankleshwar.
+  - Emails: mega@megabags.in, vipinyadav4926@gmail.com
+  - Phone: Hemal Limbachiya (+91-99040 77044), Krunal Shah (+91-97237 70445), Vipin (+91 9161722416).
+
+Global Footer & Floating Elements:
+- Footer containing links, policies, and the address/contact info above.
+- Floating WhatsApp Direct Chat button linked to +91 9161722416.
+- Floating AI Chatbot UI window (mockup UI for customer support).
+
+Design Instructions:
+- The design must look extremely premium, industrial, yet eco-friendly (Kraft paper browns, industrial blues/greens, clean whites).
+- DO NOT use lorem ipsum. Use the exact data provided above.
