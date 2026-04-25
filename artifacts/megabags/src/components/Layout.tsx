@@ -31,9 +31,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/contact">
               <span className={`text-sm font-medium transition-colors hover:text-primary ${location === '/contact' ? 'text-primary' : 'text-foreground/80'}`}>Contact</span>
             </Link>
-            <Link href="/contact">
-              <Button size="sm" className="rounded-full px-6">Get a Quote</Button>
-            </Link>
           </nav>
         </div>
       </header>

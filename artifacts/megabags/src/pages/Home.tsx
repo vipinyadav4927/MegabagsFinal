@@ -1,7 +1,12 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ShieldCheck, Award, BadgeCheck, FileCheck, CheckCircle2, RotateCcw, Image as ImageIcon, Move, Maximize2, Trash2, Play, Pause } from "lucide-react";
+import {
+  ShieldCheck, Award, BadgeCheck, FileCheck, CheckCircle2, RotateCcw,
+  Image as ImageIcon, Move, Maximize2, Trash2, Play, Pause,
+  FlaskConical, Palette, Paintbrush, Snowflake, Mountain, HardHat,
+  Wheat, PawPrint, Atom, Droplets, Users, Cog, Truck, Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -24,11 +29,14 @@ export function Home() {
   return (
     <div className="w-full flex flex-col items-center">
       <HeroSection />
+      <AboutSection />
+      <ManufacturingFacilitiesSection />
       <ProductViewerSection />
-      <ProcessSection />
+      <ProductRangeSection />
+      <UsedInSection />
       <CertificationsSection />
       <WhyUsSection />
-      <AboutSection />
+      <OurProfessionalsSection />
     </div>
   );
 }
@@ -83,7 +91,7 @@ function ProductViewerSection() {
 
   // Rotation is tracked in degrees (continuous). Frame index = rotation/(360/FRAME_COUNT).
   const [rotation, setRotation] = useState(0);
-  const [autoRotate, setAutoRotate] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
 
   // Customization
@@ -119,11 +127,11 @@ function ProductViewerSection() {
     animationRef.current = requestAnimationFrame(decay);
   }, []);
 
-  // Auto-rotate loop
+  // Auto-rotate loop — continuous smooth spin like Sirv
   useEffect(() => {
     if (autoRotate) {
       const tick = () => {
-        setRotation((r) => r + 0.6);
+        setRotation((r) => r + 0.9);
         autoRotateRef.current = requestAnimationFrame(tick);
       };
       autoRotateRef.current = requestAnimationFrame(tick);
@@ -421,22 +429,10 @@ function ProductViewerSection() {
                 </div>
               </div>
 
-              {/* Bottom frame indicator */}
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1">
-                {product.frames.map((_, i) => (
-                  <span
-                    key={i}
-                    className={`block h-1.5 rounded-full transition-all ${
-                      i === frameIdx ? "w-6 bg-primary" : "w-1.5 bg-slate-300"
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
 
             <p className="text-center text-xs text-slate-500 mt-3">
-              Showing <span className="font-semibold text-slate-700">{product.name}</span> · Frame {frameIdx + 1} of{" "}
-              {FRAME_COUNT}
+              Showing <span className="font-semibold text-slate-700">{product.name}</span>
             </p>
           </div>
 
@@ -574,37 +570,189 @@ function ProductViewerSection() {
   );
 }
 
-function ProcessSection() {
+function AboutSection() {
   return (
-    <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+    <section id="about" className="py-24 bg-white w-full">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">About Us</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-3 mb-6">A Brand Name in Industrial Paper Bags</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+        </div>
+
+        <p className="text-lg md:text-xl text-slate-600 leading-relaxed text-center max-w-3xl mx-auto">
+          Our organization is a brand name in supplying an excellent quality of different types of Paper Bags.
+          Our ability in meeting the bulk demands of our clients is due to the availability of a sophisticated
+          manufacturing unit at our premises. Our products are in huge demand owing to their attractive style and
+          economical price — supplied in bulk to meet the demands of our clients.
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-slate-100">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">5L+</div>
+            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bags / Month</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">4-Ply</div>
+            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Capability</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">7+</div>
+            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bag Types</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">GIDC</div>
+            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Ankleshwar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ManufacturingFacilitiesSection() {
+  const points = [
+    "Latest advanced pneumatic-process machinery",
+    "In-house laminating, centre sealing, printing & cutting",
+    "Production capacity up to 5,00,000 bags / month (single shift)",
+    "Complete in-house testing facilities",
+    "Dedicated warehouse for finished goods & raw material",
+    "Quality, quantity and timely service — every order",
+  ];
+
+  return (
+    <section className="py-24 bg-slate-900 text-white overflow-hidden relative w-full">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">Precision at <br/><span className="text-primary">Industrial Scale</span></h2>
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Manufacturing Facilities</span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mt-3 mb-6 leading-tight">
+              Precision at <br /><span className="text-primary">Industrial Scale</span>
+            </h2>
             <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-              Inside our Ankleshwar manufacturing facility — precision pneumatic processes, in-house lamination, centre sealing, printing, cutting, and full testing.
+              Megabags Packaging has arrived in the packaging industry with its latest advanced machinery based on
+              pneumatic processes. We add a new dimension to packaging with innovative, multi-purpose products —
+              setting new trends and ensuring customer satisfaction by always delivering quality bags on time.
             </p>
-            <ul className="space-y-4">
-              {["State-of-the-art pneumatic machinery", "In-house multi-color flexographic printing", "Rigorous quality control lab", "Sustainable production practices"].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+            <ul className="space-y-3">
+              {points.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <span className="text-slate-300 font-medium">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          
-          <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-800 shadow-2xl">
-            {/* Fallback to poster if video not available */}
-            <img src={heroImg} alt="Process Video Poster" className="w-full h-full object-cover opacity-60" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/30 backdrop-blur cursor-pointer hover:scale-105 transition-transform">
-                <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-2" />
+
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 shadow-2xl">
+            <img src={heroImg} alt="Manufacturing Facility" className="w-full h-full object-cover opacity-70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Plot No. 248</p>
+                <p className="text-xl font-bold">Ankleshwar GIDC</p>
+                <p className="text-sm text-slate-300">Gujarat, India</p>
+              </div>
+              <div className="bg-primary/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                Pneumatic Process
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductRangeSection() {
+  const productList = [
+    "Valve Paper Bags",
+    "Cement Paper Bags / Sacks",
+    "Laminated HDPE Bags",
+    "Multiwall Paper Sacks / Bags",
+    "Aluminium Foil Laminated Paper Bags",
+    "BOPP Laminated HDPE Bags",
+    "Paper Sacks",
+  ];
+
+  return (
+    <section id="range" className="py-24 bg-white w-full scroll-mt-20">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Product Range</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-3 mb-6">A Trusted Manufacturer & Exporter</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            We are a reliable and trusted manufacturer, exporter and supplier of an optimum quality range of packaging
+            bags — available in varied capacities, printing options, colours and patterns to meet the exact demands
+            of our clients.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
+          {productList.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 hover:border-primary/40 hover:bg-primary/5 transition-colors"
+            >
+              <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold flex items-center justify-center shrink-0 text-sm">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <span className="text-slate-800 font-medium">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Link href="/products">
+            <Button size="lg" className="rounded-full px-8">View Detailed Specifications</Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function UsedInSection() {
+  const industries = [
+    { icon: FlaskConical, label: "Chemicals" },
+    { icon: Palette, label: "Dyes" },
+    { icon: Paintbrush, label: "Pigments" },
+    { icon: Snowflake, label: "Powders" },
+    { icon: Mountain, label: "Minerals" },
+    { icon: HardHat, label: "Construction Chemicals" },
+    { icon: Wheat, label: "Food Spices & Grains" },
+    { icon: PawPrint, label: "Pet & Animal Feeds" },
+    { icon: Atom, label: "Polymers" },
+    { icon: Droplets, label: "Adhesives & More" },
+  ];
+
+  return (
+    <section id="used-in" className="py-24 bg-slate-50 w-full scroll-mt-20">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Used In</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-3 mb-4">Industries We Serve</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          {industries.map(({ icon: Icon, label }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+              className="bg-white rounded-2xl p-5 border border-slate-100 hover:border-primary/40 hover:shadow-md hover:-translate-y-1 transition-all group flex flex-col items-center text-center"
+            >
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white text-primary transition-colors">
+                <Icon className="w-7 h-7" strokeWidth={1.6} />
+              </div>
+              <span className="text-sm font-semibold text-slate-800">{label}</span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -616,16 +764,21 @@ function CertificationsSection() {
     { icon: ShieldCheck, name: "ISO 9001:2015" },
     { icon: BadgeCheck, name: "BIS Certified" },
     { icon: FileCheck, name: "FSSAI Approved" },
-    { icon: Award, name: "GST Registered" }
+    { icon: Award, name: "GST Registered" },
   ];
 
   return (
-    <section className="py-16 bg-white border-b">
+    <section className="py-16 bg-white border-y w-full">
       <div className="container mx-auto px-4">
-        <h3 className="text-center text-sm font-bold tracking-widest uppercase text-slate-400 mb-10">Certified Quality & Compliance</h3>
+        <h3 className="text-center text-sm font-bold tracking-widest uppercase text-slate-400 mb-10">
+          Certified Quality & Compliance
+        </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {certs.map((cert, i) => (
-            <div key={i} className="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border hover:border-primary/50 transition-colors">
+            <div
+              key={i}
+              className="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border hover:border-primary/50 transition-colors"
+            >
               <cert.icon className="w-10 h-10 text-primary mb-4" strokeWidth={1.5} />
               <span className="font-bold text-slate-800 text-center">{cert.name}</span>
             </div>
@@ -639,26 +792,41 @@ function CertificationsSection() {
 function WhyUsSection() {
   const bullets = [
     "Flawless finish of products",
-    "Competitive prices & Timely delivery",
-    "High production efficient with highly skilled workforce",
-    "Free sampling policy & Comprehensive testing facilities",
-    "Bulk production capacity (5,00,000 bags per month on single shift)"
+    "Competitive prices",
+    "Timely delivery",
+    "High production efficiency with a highly skilled workforce",
+    "Use of quality raw material procured from trusted names",
+    "Free sampling policy",
+    "Comprehensive testing facilities",
+    "Bulk production capacity",
+    "Consistent optimization of manufacturing process",
   ];
 
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4">Why Choose Mega Bags?</h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+    <section className="py-24 bg-slate-50 w-full">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Why Us?</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-3 mb-4">Why Choose Mega Bags</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            We leverage our sophisticated facilities, skilled workforce and wide market presence to create a rapport
+            for ourselves in the global market. The factors that make us a preferred partner include:
+          </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {bullets.map((bullet, i) => (
-            <div key={i} className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-              <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-              <p className="text-slate-700 font-medium leading-relaxed">{bullet}</p>
-            </div>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.04, duration: 0.35 }}
+              className="flex items-start gap-3 bg-white p-5 rounded-xl shadow-sm border border-slate-100 hover:border-primary/40 transition-colors"
+            >
+              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <p className="text-slate-700 font-medium leading-snug">{bullet}</p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -666,31 +834,51 @@ function WhyUsSection() {
   );
 }
 
-function AboutSection() {
+function OurProfessionalsSection() {
+  const roles = [
+    { icon: Cog, label: "Machine Operators" },
+    { icon: ShieldCheck, label: "Quality Controllers" },
+    { icon: Truck, label: "Warehouse Personnel" },
+    { icon: Users, label: "Sales & Marketing" },
+  ];
+
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="container mx-auto px-4 max-w-4xl text-center">
-        <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-10">About Us</h2>
-        <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-serif italic mb-16">
-          "Our organization is a brand name in supplying an excellent quality of different types of Paper Bags. Our manufacturing unit is installed with all the requisite machines and facilities like laminating, centre sealing, printing, and cutting based on pneumatic processes."
-        </p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-slate-100">
+    <section id="team" className="py-24 bg-white w-full scroll-mt-20">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">5L+</div>
-            <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">Bags / Month</div>
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Our Professionals</span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-3 mb-6 leading-tight">
+              People who carry <br /><span className="text-primary">your trust</span>
+            </h2>
+            <p className="text-slate-600 leading-relaxed mb-6">
+              The professionals at our team — including machine operators, quality controllers, warehouse personnel
+              and sales & marketing executives — work in unison to ensure a smooth and swift work procedure. Their
+              in-depth knowledge of industry standards and the products to be packed has enabled us to provide a
+              customized range of packaging bags and sacks.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              We also offer them regular training to keep them abreast with the changing demands of clients.
+            </p>
+
+            <div className="mt-8 inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+              <Sparkles size={14} />
+              Continuous training. Consistent quality.
+            </div>
           </div>
-          <div>
-            <div className="text-4xl font-bold text-primary mb-2">4-Ply</div>
-            <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">Capability</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-primary mb-2">ISO</div>
-            <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">9001:2015</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-primary mb-2">GIDC</div>
-            <div className="text-sm font-medium text-slate-500 uppercase tracking-wider">Ankleshwar</div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {roles.map(({ icon: Icon, label }, i) => (
+              <div
+                key={i}
+                className="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col items-center text-center hover:border-primary/40 hover:bg-white hover:shadow-md transition-all"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                  <Icon className="w-7 h-7" strokeWidth={1.6} />
+                </div>
+                <span className="font-bold text-slate-900">{label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

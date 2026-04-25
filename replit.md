@@ -22,10 +22,10 @@ Monorepo housing the **Mega Bags** marketing website — a 3-page (Home, Product
 
 ## Key Pages / Features (megabags)
 
-- **Home** — Hero, Interactive 360° Customizer (`#customize`), Process timeline, Certifications, Why Us, About.
-- **Products** — Product grid with details.
-- **Contact** — Form + map.
-- **Layout** — Navbar, mobile bottom tab bar, footer, floating WhatsApp + AI chatbot widgets.
+- **Home** — Brochure-aligned section order: Hero → About Us (`#about`) → Manufacturing Facilities → Interactive 360° Customizer (`#customize`) → Product Range (`#range`, 7 items) → Industries We Serve / Used In (`#used-in`, 10 industries with icons) → Certifications → Why Choose Mega Bags (9 bullets) → Our Professionals (`#team`, 4 roles).
+- **Products** — Product grid with 5 detailed products (POM, Multiwall, Valve-Type/PVSE, HDPE Laminated, L-Stitched) matching the brochure.
+- **Contact** — Form + map. Contacts: Hemal +91-99040 77044, Krunal +91-97237 70445, mega@megabags.in, Plot 248 Ankleshwar GIDC.
+- **Layout** — Navbar (Home / Products / About / Contact — no "Get a Quote" button), mobile bottom tab bar, footer, floating WhatsApp + AI chatbot widgets.
 
 ## 360° Customizer
 
@@ -36,7 +36,7 @@ Located in `artifacts/megabags/src/pages/Home.tsx` (`ProductViewerSection`). Dri
   - `pom`: full 8-frame real 360 (AI-generated photoreal kraft sack from 8 angles).
   - `multiwall`: 2 generated frames + padded fallback.
   - `valve`, `hdpe`, `lstitched`: single product image (free-tier image-gen cap of 10 images per session prevented full sets).
-- Drag-to-rotate with inertia decay; auto-rotate spin/pause toggle; degree readout; frame-pip indicator.
+- Drag-to-rotate with inertia decay; **auto-rotate ON by default** (continuous spin at 0.9°/frame, Sirv-style) with Pause/Spin toggle; degree readout. No frame-count UI (clean look).
 - Customization: company name, tagline, brand color, uploaded logo.
 - Overlay is **draggable** (pointer drag on the artwork) and **resizable** (orange corner handle) plus X / Y / Size sliders for fine control. Front-face overlay opacity fades when bag is rotated past ~±60°.
 
