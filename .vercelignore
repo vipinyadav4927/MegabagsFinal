@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+build
+out-tsc
+*.tsbuildinfo
+
+# Git
+.git
+
+# IDE
+.idea
+.vscode
+.cursor
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Misc
+tmp
+.expo
+.expo-shared
+.cache
+.local
+coverage
+
+# Vercel
+.vercel
+
+# Other artifacts not needed for deployment
+artifacts/api-server
+artifacts/mockup-sandbox
+lib
+scripts
+attached_assets/images/360
+attached_assets/images/**/*.ai
+attached_assets/images/**/*.psd
