@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "_TKgJLBhXJrjtqWEN7FuA"
@@ -42,3 +41,93 @@ id = "8OzQ7mhLd34laL1yNrqX2"
 uri = "file://src/assets/images/product-5.png"
 type = "image"
 title = "L-stitched paper bag"
+
+[[generated]]
+id = "lb7sz41Dn1CXskFcsZ4WD"
+uri = "file://attached_assets/images/360/multiwall/frame-00.png"
+type = "image"
+title = "multiwall 360 frame 0"
+
+[[generated]]
+id = "sHEShTaVluuUOdiDUA1PZ"
+uri = "file://attached_assets/images/360/multiwall/frame-01.png"
+type = "image"
+title = "multiwall 360 frame 1"
+
+[[generated]]
+id = "WL59HOcNRPkyHwRrc-vRx"
+uri = "file://attached_assets/images/360/pom/frame-00.png"
+type = "image"
+title = "pom 360 frame 0"
+
+[[generated]]
+id = "-BHzAvJvxaePw7G9kBhMv"
+uri = "file://attached_assets/images/360/pom/frame-01.png"
+type = "image"
+title = "pom 360 frame 1"
+
+[[generated]]
+id = "m1KKkxUUudex4P5-N_N10"
+uri = "file://attached_assets/images/360/pom/frame-02.png"
+type = "image"
+title = "pom 360 frame 2"
+
+[[generated]]
+id = "e-Ykw9fdWiI9aZNbcEmuj"
+uri = "file://attached_assets/images/360/pom/frame-03.png"
+type = "image"
+title = "pom 360 frame 3"
+
+[[generated]]
+id = "jHjIHMmqNRPi2_yv968SE"
+uri = "file://attached_assets/images/360/pom/frame-04.png"
+type = "image"
+title = "pom 360 frame 4"
+
+[[generated]]
+id = "RhYt9cgf80rThIqSL0Wjc"
+uri = "file://attached_assets/images/360/pom/frame-05.png"
+type = "image"
+title = "pom 360 frame 5"
+
+[[generated]]
+id = "pguITZ8Sb0vqsEMwMryr8"
+uri = "file://attached_assets/images/360/pom/frame-06.png"
+type = "image"
+title = "pom 360 frame 6"
+
+[[generated]]
+id = "UR89E1JbmCld0JGk77kD6"
+uri = "file://attached_assets/images/360/pom/frame-07.png"
+type = "image"
+title = "pom 360 frame 7"
+
+[[outputs]]
+id = "x02NXyl58iPkwCF-uDONZ"
+uri = "file://attached_assets/stock_images/kraft_paper_sack_1.jpg"
+type = "image"
+title = "industrial brown kraft paper sack standing upright on white background product photo"
+
+[[outputs]]
+id = "NCnYVxQY1AJygpKh7m5lQ"
+uri = "file://attached_assets/stock_images/kraft_paper_sack_2.jpg"
+type = "image"
+title = "industrial brown kraft paper sack standing upright on white background product photo"
+
+[[outputs]]
+id = "n96dCxk0BPnqWq9SDrNgc"
+uri = "file://attached_assets/stock_images/kraft_paper_sack_3.jpg"
+type = "image"
+title = "industrial brown kraft paper sack standing upright on white background product photo"
+
+[[outputs]]
+id = "akiKagVu7YzZEq2nIDXkF"
+uri = "file://attached_assets/stock_images/kraft_paper_sack_4.jpg"
+type = "image"
+title = "industrial brown kraft paper sack standing upright on white background product photo"
+
+[[outputs]]
+id = "E9wr3kr5uKOmDWRImV3mo"
+uri = "file://attached_assets/stock_images/kraft_paper_sack_5.jpg"
+type = "image"
+title = "industrial brown kraft paper sack standing upright on white background product photo"
